@@ -1,65 +1,60 @@
 // Exercise One
 
-var userSum = 0;
-var userInput = prompt("Enter a Number!"); 
-for (var num = 1; num <= userInput; num++) {
+let userSum = 0;
+let userInput = prompt("Enter a Number!").toLowerCase(); 
+for (let num = 1; num <= userInput; num++) {
   userSum += num;
 }
+console.log(userSum);
 
 
 // Exercise Two
 
+let start = prompt("Do you want to play?").toLowerCase();
+let output = "";
+let repeat;
 
-prompt("Do you want to play?");
+if (start === "no") {
+  console.log("Maybe next time?");
+} else if (start == "yes") {
+  // console.log("Enter a word");
+  do {
+    let word = prompt("Enter a word").toLowerCase();
+    output = output += word + " ";
+  } while ((repeat = prompt("Would you like to play again?").toLowerCase() === "yes")
+)
+  console.log(output);
+}
 
-var repeat, words = []
+// // Exercise Three
 
-do {
-  words.push(prompt("Enter a word"));
-  repeat = prompt("Do you want to play again?")
-} while (repeat !== "no") 
-console.log(words.toString());
+let userName = prompt("What is your name?").toLowerCase();
+let begin = prompt("Would you like to print your name?").toLowerCase();
+let again;
 
-
-
-
-// Exercise Three
-
-
-var userName = prompt("What is your name?");
-var printName = prompt("Would you like to print your name?");
-console.log("Hello. My name is " + userName);
-
-
-while (printName !== "no") //condition
-
-{
-var printAgain = console.log("Hello. My name is " + userName + "!");
-var printName = prompt("Would you like to print this again?");
-
-printName !== "yes"
-
-} console.log("Hello. My name is " + userName + "!");
-
-
-
+if (begin === "yes") {
+   console.log("Hello. My name is " + userName);
+   let i = "!";
+   while (again = prompt("Would you like to print your name again?").toLowerCase() === "yes") {
+     console.log("Hello. My name is " + userName + i);
+     i += "!";
+   }
+} else if (begin === "no") {
+  console.log("Maybe next time?");
+}
 
 
-// Exercise Four
+// // Exercise Four
 
 
-let timeOfDay = prompt('What time of day is it?').toUpperCase();
+let timeOfDay = prompt("What time of the day is it? Morning, noon or evening?").toLowerCase();
 
-   switch (timeOfDay){
-    case 'MORNING':
-    console.log ('Since it is the morning, you should be eating breakfast. We suggest eggs and toast.');
-    break;
-   case 'NOON':
-    console.log('Since it is noon, you should be eating lunch. We suggest a salad.');
-    break;
-   case 'EVENING':
-    console.log('Since it is the evening, you should be eating dinner. We suggest chicken and rice.');
-    break;
-   default:
-    console.log ('Incorrect time');
+if (timeOfDay === "morning") {
+  console.log ('Since it is the morning, you should be eating breakfast. We suggest eggs and toast.');
+} else if (timeOfDay === "noon") {
+  console.log('Since it is noon, you should be eating lunch. We suggest a salad.');
+} else if (timeOfDay === "evening") {
+  console.log('Since it is the evening, you should be eating dinner. We suggest chicken and rice.');
+} else {
+  console.log ('Incorrect time');
 }
